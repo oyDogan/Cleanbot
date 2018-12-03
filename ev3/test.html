@@ -1,0 +1,11 @@
+<script src="node_modules/socket.io-client/dist/socket.io.js"></script>
+<script>
+  console.log("HERE");
+  var socket = io('http://fc370a4b.ngrok.io');
+  socket.on('connect', function(){
+    print("Connected");
+    socket.emit("move","right");
+  });
+  socket.on('event', function(data){});
+  socket.on('disconnect', function(){});
+</script>
