@@ -1,0 +1,17 @@
+{
+  "name": "websocket-test-app",
+  "description": "Cross Device Communication using WebSockets",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "main": "server.js",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.16.2",
+    "socketio": "^1.0.0"
+  },
+  "version": "1.0.0",
+  "devDependencies": {},
+  "keywords": [],
+  "author": ""
+}

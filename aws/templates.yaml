@@ -1,2 +1,6 @@
 hello : Hello, its me, I was wondering
-move : Moving
+move : Moving {{}}
+stop : Stopping
+grab : Grabbing
+release : Releasing
+turn : Turning {{direction}}

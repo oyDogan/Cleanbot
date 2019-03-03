@@ -1,0 +1,294 @@
+{
+    "interactionModel": {
+        "languageModel": {
+            "invocationName": "clean bot",
+            "intents": [
+                {
+                    "name": "AMAZON.FallbackIntent",
+                    "samples": []
+                },
+                {
+                    "name": "AMAZON.CancelIntent",
+                    "samples": []
+                },
+                {
+                    "name": "AMAZON.HelpIntent",
+                    "samples": []
+                },
+                {
+                    "name": "AMAZON.StopIntent",
+                    "samples": []
+                },
+                {
+                    "name": "AMAZON.NavigateHomeIntent",
+                    "samples": []
+                },
+                {
+                    "name": "HelloIntent",
+                    "slots": [],
+                    "samples": [
+                        "Hiya",
+                        "Howdy",
+                        "Yo",
+                        "Hey",
+                        "What's up",
+                        "Hello"
+                    ]
+                },
+                {
+                    "name": "MoveIntent",
+                    "slots": [
+                        {
+                            "name": "Direction",
+                            "type": "DIRECTIONS",
+                            "samples": [
+                                "turn {Direction}",
+                                "head {Direction}",
+                                "go {Direction}",
+                                "Move {Direction}",
+                                "{Direction}"
+                            ]
+                        }
+                    ],
+                    "samples": [
+                        "move to the {Direction}",
+                        "reverse {Direction}",
+                        "turn to the {Direction}",
+                        "turn {Direction}",
+                        "move {Direction}",
+                        "go {Direction}",
+                        "head {Direction}"
+                    ]
+                },
+                {
+                    "name": "StopIntent",
+                    "slots": [],
+                    "samples": [
+                        "turn off",
+                        "pause",
+                        "cease",
+                        "dont move",
+                        "wait",
+                        "halt",
+                        "stop"
+                    ]
+                },
+                {
+                    "name": "GrabIntent",
+                    "slots": [],
+                    "samples": [
+                        "fetch",
+                        "gather",
+                        "collect",
+                        "hold",
+                        "Pick up",
+                        "Grab"
+                    ]
+                },
+                {
+                    "name": "ReleaseIntent",
+                    "slots": [],
+                    "samples": [
+                        "stop",
+                        "drop",
+                        "let go",
+                        "release"
+                    ]
+                },
+                {
+                    "name": "TurnArmIntent",
+                    "slots": [
+                        {
+                            "name": "Arm_Direction",
+                            "type": "ARM_DIRECTIONS"
+                        }
+                    ],
+                    "samples": [
+                        "raise arm {Arm_Direction}",
+                        "drop arm {Arm_Direction}",
+                        "lower arm {Arm_Direction}",
+                        "lift arm {Arm_Direction}",
+                        "Twist {Arm_Direction}",
+                        "Twist arm {Arm_Direction}",
+                        "Swivel arm {Arm_Direction}",
+                        "Move arm {Arm_Direction}",
+                        "Rotate {Arm_Direction}",
+                        "Rotate arm {Arm_Direction}",
+                        "Turn arm {Arm_Direction}",
+                        "Move {Arm_Direction}",
+                        "Turn {Arm_Direction}"
+                    ]
+                }
+            ],
+            "types": [
+                {
+                    "name": "DIRECTIONS",
+                    "values": [
+                        {
+                            "name": {
+                                "value": "forward",
+                                "synonyms": [
+                                    "ahead",
+                                    "straight"
+                                ]
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "backward",
+                                "synonyms": [
+                                    "reverse",
+                                    "back"
+                                ]
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "left",
+                                "synonyms": [
+                                    "left side",
+                                    "to the left",
+                                    "leftwards",
+                                    "clockwise"
+                                ]
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "right",
+                                "synonyms": [
+                                    "right side",
+                                    "to the right",
+                                    "rightwards",
+                                    "counter clockwise"
+                                ]
+                            }
+                        }
+                    ]
+                },
+                {
+                    "name": "ARM_DIRECTIONS",
+                    "values": [
+                        {
+                            "name": {
+                                "value": "Down",
+                                "synonyms": [
+                                    "vertically down",
+                                    "downward",
+                                    "downwards",
+                                    "lower"
+                                ]
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "Up",
+                                "synonyms": [
+                                    "vertically up",
+                                    "upward",
+                                    "upwards",
+                                    "higher"
+                                ]
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "Right",
+                                "synonyms": [
+                                    "right side",
+                                    "rightwards",
+                                    "to the right",
+                                    "Clockwise"
+                                ]
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "Left",
+                                "synonyms": [
+                                    "left side",
+                                    "leftwards",
+                                    "to the left",
+                                    "Counter-clockwise"
+                                ]
+                            }
+                        }
+                    ]
+                }
+            ]
+        },
+        "dialog": {
+            "intents": [
+                {
+                    "name": "MoveIntent",
+                    "confirmationRequired": false,
+                    "prompts": {},
+                    "slots": [
+                        {
+                            "name": "Direction",
+                            "type": "DIRECTIONS",
+                            "confirmationRequired": false,
+                            "elicitationRequired": true,
+                            "prompts": {
+                                "elicitation": "Elicit.Slot.1456638237406.1029022802783"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "name": "TurnArmIntent",
+                    "confirmationRequired": false,
+                    "prompts": {},
+                    "slots": [
+                        {
+                            "name": "Arm_Direction",
+                            "type": "ARM_DIRECTIONS",
+                            "confirmationRequired": false,
+                            "elicitationRequired": true,
+                            "prompts": {
+                                "elicitation": "Elicit.Slot.258871718210.182464336001"
+                            }
+                        }
+                    ]
+                }
+            ],
+            "delegationStrategy": "SKILL_RESPONSE"
+        },
+        "prompts": [
+            {
+                "id": "Elicit.Slot.1456638237406.1029022802783",
+                "variations": [
+                    {
+                        "type": "PlainText",
+                        "value": "Where?"
+                    },
+                    {
+                        "type": "PlainText",
+                        "value": "Which way?"
+                    },
+                    {
+                        "type": "PlainText",
+                        "value": "Which direction?"
+                    }
+                ]
+            },
+            {
+                "id": "Elicit.Slot.258871718210.182464336001",
+                "variations": [
+                    {
+                        "type": "PlainText",
+                        "value": "Which way?"
+                    },
+                    {
+                        "type": "PlainText",
+                        "value": "Where?"
+                    },
+                    {
+                        "type": "PlainText",
+                        "value": "Which direction?"
+                    }
+                ]
+            }
+        ]
+    }
+}

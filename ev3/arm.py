@@ -1,9 +1,29 @@
+from socketIO_client import SocketIO
 import ev3dev.ev3 as ev3
 from time import sleep
 
 claw  = ev3.Motor('outA')
 joint = ev3.LargeMotor('outB')
 rotor = ev3.LargeMotor('outD')
+socket = SocketIO("")
+
+def clawCommand(action):
+    print('Claw command : ' + action)
+    if(action == "grab"):
+        closeClaw()
+    else :
+        openClaw()
+
+def armCommand(direction):
+    print("Arm command : " + direction)
+    if(direction == "up"):
+        raiseJoint()
+    elif(direction == "down"):
+        lowerJoint()
+    elif(direction == "left"):
+        rotateLeft()
+    elif(direction == "right"):
+        rotateRight()
 
 def demo():
     print("Demo")
@@ -55,3 +75,6 @@ def rotateRight() :
     rotor.run_to_rel_pos(position_sp=-700*4, speed_sp=200, stop_action="hold")
 
 joint.run_timed(time_sp=300,speed_sp=-1000,stop_action="hold")
+
+socket.on('claw',clawCommand)
+socket.on('arm',armCommand)

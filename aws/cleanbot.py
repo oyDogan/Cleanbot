@@ -11,7 +11,7 @@ logging.getLogger("flask_ask").setLevel(logging.DEBUG)
 
 print("LOGIN")
 
-socket = SocketIO('http://bd8d4020.ngrok.io')
+socket = SocketIO('http://localhost',1337)
 
 @ask.intent("HelloIntent")
 def hello():
@@ -23,8 +23,37 @@ def move(direction) :
     print("Direction")
     print(direction)
     socket.emit("move",direction)
-    move_message = render_template('move')
+    move_message = render_template('move',direction=direction)
     return statement(move_message)
+
+@ask.intent("StopIntent")
+def stop():
+    print("Stop")
+    socket.emit("move","stop")
+    stop_message = render_template('stop')
+    return statement(stop_message)
+
+@ask.intent("GrabIntent")
+def grab():
+    print("Grab")
+    socket.emit("claw","grab")
+    grab_message = render_template('grab')
+    return statement(grab_message)
+
+@ask.intent("ReleaseIntent")
+def release():
+    print("Release")
+    socket.emit("claw","release")
+    release_message = render_template('release')
+    return statement(release_message)
+
+@ask.intent("TurnArmIntent", mapping={'direction':'Arm_Direction'})
+def turnArm(direction):
+    print("Turn arm")
+    print(direction)
+    socket.emit("arm",direction)
+    turn_message = render_template('turn',direction=direction)
+    return statement(turn_message)
 
 if __name__ == '__main__':
     app.config['ASK_VERIFY_REQUESTS'] = False
