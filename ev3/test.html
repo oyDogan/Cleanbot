@@ -1,11 +1,147 @@
 <script src="node_modules/socket.io-client/dist/socket.io.js"></script>
 <script>
-  console.log("HERE");
+  /*console.log("HERE");
   var socket = io('http://fc370a4b.ngrok.io');
   socket.on('connect', function(){
     print("Connected");
     socket.emit("move","right");
   });
   socket.on('event', function(data){});
-  socket.on('disconnect', function(){});
+  socket.on('disconnect', function(){});*/
 </script>
+<html>
+  <head>
+    <title>Ev3 device test</title>
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+
+    <!-- jQuery library -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+    <!-- Latest compiled JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+  </head>
+  <body>
+    <div class='container'>
+      <div class='jumbotron'>
+        <h1>Ev3 brick testing suite</h1>
+      </div>
+      <div class='row'>
+        <div class="col-md-6">
+          <div class='page-header'>
+            <h2>Movement controls</h2>
+          </div>
+          <form onsubmit="return false">
+              <button type='button' id='moveForwards' class='btn btn-large btn-block btn-primary'>
+                Move forwards
+              </button>
+              <button type='button' id='moveBackwards' class='btn btn-large btn-block btn-primary'>
+                Move Backwards
+              </button>
+              <button type='button' id='moveLeft' class='btn btn-large btn-block btn-primary'>
+                  Turn left
+                </button>
+                <button type='button' id='moveRight' class='btn btn-large btn-block btn-primary'>
+                    Turn Right
+                  </button>
+            </form> 
+        </div>
+        <div class='col-md-6'>
+          <div class='page-header'>
+            <h2>Arm controls</h2>
+          </div>
+          <ul class='list-group'>
+            <li class='list-group-item'>
+              <div class='page-header'>
+                <h4>Claw controls</h4>
+              </div>
+              <div class='row'>
+                <div class="col-md-6">
+                  <button type='button' id="clawOpen" class='btn btn-large btn-block btn-primary'>
+                    Open
+                  </button>
+                </div>
+                <div class="col-md-6">
+                    <button type='button' id='clawClose' class='btn btn-large btn-block btn-primary'>
+                      Close
+                    </button>
+                  </div>
+              </div>
+            </li>
+            <li class='list-group-item'>
+              <div class="page-header">
+                <h4>Joint controls</h4>
+              </div>
+              <div class='row'>
+                <div class='col-md-4'>
+                  <button type='button' id='jointRaise' class='btn btn-block btn-large btn-primary'>
+                    Raise
+                  </button>
+                </div>
+                <div class='col-md-4'>
+                    <button type='button' id='jointLower' class='btn btn-block btn-large btn-primary'>
+                      Lower
+                    </button>
+                  </div>
+                  <div class='col-md-4'>
+                      <button type='button' id='jointRelease' class='btn btn-block btn-large btn-primary'>
+                        Release
+                      </button>
+                    </div>
+              </div>
+            </li>
+            <li class='list-group-item'>
+              <div class="page-header">
+                <h4>Rotating controls</h4>
+              </div>
+              <div class='row'>
+                <div class='col-md-6'>
+                  <button type='button' id='rotateLeft' class='btn btn-block btn-large btn-primary'>
+                    Left
+                  </button>
+                </div>
+                <div class='col-md-6'>
+                    <button type='button' id='rotateRight' class='btn btn-block btn-large btn-primary'>
+                      Right
+                    </button>
+                  </div>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <script>
+        $("#moveForwards").click(function() {
+          
+        });
+        $("#moveBackwards").click(function() {
+        });
+        $("#moveLeft").click(function() {
+        });
+        $("#moveRight").click(function() {
+        });
+        $("#clawOpen").click(function() {
+
+        });
+        $("#clawClose").click(function() {
+
+        });
+        $("#jointRaise").click(function() {
+
+        });
+        $("#jointLower").click(function() {
+
+        });
+        $("#jointRelease").click(function() {
+
+        });
+        $("#rotateLeft").click(function() {
+
+        });
+        $("#rotateRight").click(function() {
+
+        });
+      </script>
+  </body>
+</html>

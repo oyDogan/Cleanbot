@@ -11,7 +11,7 @@ logging.getLogger("flask_ask").setLevel(logging.DEBUG)
 
 print("LOGIN")
 
-socket = SocketIO('http://bd9c8794.ngrok.io')
+socket = SocketIO('http://bd8d4020.ngrok.io')
 
 @ask.intent("HelloIntent")
 def hello():
