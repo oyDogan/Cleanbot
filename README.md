@@ -9,7 +9,7 @@ The overall idea of this project is to create a rover-styled robot that is contr
 
 # 1. Amazon Alexa Services
 Working with Alexa involves creating a skill, which can later be delployed to the Alexa store.
-To begin with this, you need an Amazon developer account which you can create an account [https://developer.amazon.com/](here). From here go to the Alexa tab, then the 'Alexa skill kit'. You can then create a skill, setting your model as custom. When prompted to choose a template, its best to 'Start from scratch', you've now created a skill.
+To begin with this, you need an Amazon developer account which you can create an account [here](https://developer.amazon.com/). From here go to the Alexa tab, then the 'Alexa skill kit'. You can then create a skill, setting your model as custom. When prompted to choose a template, its best to 'Start from scratch', you've now created a skill.
 
 An intent is a step of functionality for your skill, for our project we have several intents, for movement of the rover, rotating the arm, raising and lowering the arm and for the claw itself. To get all of CleanBot's functionality, you can simply add the intents.json file in the skill folder to the JSON editor tab on Amazon's developer page.
 
@@ -42,13 +42,45 @@ The port 1337, is being listened to by our web socket. To begin with the web soc
 ```
 The web socket takes messages from the Flask-ask python script and then sends them onto the Ev3 robot, it also sends messages which the test suite can use.
 # 4. Ev3dev scripts
+The final step in our project is the Ev3 bricks, during our research we found an operating system called Ev3dev, its a debian operating system that can be run on the brick, for this part you will need your Micro SD cards. Its best to follow the instructions at https://www.ev3dev.org/docs/getting-started/ which will take you through the entire process of installing the OS and connecting to the internet, its best to do this process with the bricks individually,  
 
-Ev3dev - following instructions for flashing sd card
-Copying over files to brick
-Running the files on the device
+After you've followed the instructions on the ev3dev website, its now time to copy the code to each of the bricks, before that however, you need to replace the url inside the SocketIO function in the code, replacing it with the URL for the second Ngrok url, the code for this is inside the ev3 folder.
+
+Starting with the rover ev3, which has all the motors connected for the wheels :
+```bash
+    scp rover.py robot@ev3dev.local:~
+    ssh robot@ev3dev.local
+```
+When prompted for a password, use the password maker.
+
+Once you're inside the ev3's OS run : 
+```bash
+    python3 rover.py
+```
+The rover brick is now running, awaiting for messages from the web socket.
+
+For the arm brick essentially the same follows:
+```bash
+    scp arm.py robot@ev3dev.local:~
+    ssh robot@ev3dev.local
+```
+When prompted for a password, use the password maker.
+
+Once you're inside the ev3's OS run : 
+```bash
+    python3 rover.py
+```
+The arm brick is now running, awaiting for messages from the web socket.
+
+You should now be able to talk to Alexa using Amazon's developer website, and control the robot.
 
 # Future advances
+Further advances can be made to fix the code in the rover concerning moveAround, if you have a few UltraSonic sensors you could attempt to run and then test the move around function.
+
+Another advance could be to create a vision system, using a camera or a phone to use image detection search for specific objects to pick up. When the vision system rercognised an object it wanted to pick up, it could then take control of the commands sent to the ev3.
 
 # Bash scripts
+The bash scripts provided in the ev3 folder are temporamental and don't exactly work as expected.
 
-#Test suite
+# Test suite
+The test suite allows you to simulate commands from Alexa, as the entire pipeline from Alexa to ev3 is rather extensive its worth using this for testing of further functions on the 3ve device.

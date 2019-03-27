@@ -20,10 +20,6 @@ rightSideSensor = ev3.UltrasonicSensor('in3')
 rightFrontSensor = ev3.UltrasonicSensor('in4')
 
 # As use of the side sensors is still temporamental, only check the front sensors
-# Ensures that the front left sensor is connected
-assert leftFrontSensor.connected, "Connect a single ultrasonic sensor to any sensor port"
-# Ensures that the front right sensor is connected
-assert rightFrontSensor.connected, "Connect a single ultrasonic sensor to any sensor port"
 
 # Sets the distance measurement for the front left sensor
 leftFrontSensor.mode = 'US-DIST-CM'
