@@ -18,7 +18,7 @@
       socket.on('disconnect', function(){});
       $(document).ready(function() {
         socket.on("message",function(message){
-
+          $("#messagesList").append($("<li>").text(message));
         });
       });
       function moveCommand(command) {
@@ -35,6 +35,9 @@
             break;
           case "moveRight":
             socket.emit("move","right");
+            break;
+          case "moveStop":
+            socket.emit("move","stop");
             break;
           case "clawOpen":
             socket.emit("claw","release");
@@ -67,6 +70,7 @@
         <h1>Ev3 brick testing suite</h1>
       </div>
       <div class='row'>
+        
         <div class="col-md-6">
           <div class='page-header'>
             <h2>Movement controls</h2>
@@ -83,6 +87,9 @@
                 </button>
                 <button type='button' onclick='moveCommand("moveRight")' class='btn btn-large btn-block btn-primary'>
                     Turn Right
+                  </button>
+                  <button type='button' onclick='moveCommand("moveStop")' class='btn btn-large btn-block btn-danger'>
+                    Stop
                   </button>
             </form> 
         </div>
@@ -149,6 +156,11 @@
             </li>
           </ul>
         </div>
+        <div class='col-md-12'>
+            <h2>Message list</h2>
+              <ul id='messagesList'>
+              </ul>
+          </div>
       </div>
     </div>
   </body>

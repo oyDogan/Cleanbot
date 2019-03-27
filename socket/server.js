@@ -41,7 +41,7 @@ io.on('connection', function (client) {
     // emits the command for the ev3
     io.emit('claw',action);
     // emits the command for the test suite
-    io.emit('message','claw',action);
+    io.emit('message','Claw message ' + " "  + action);
   })
 
   // When a turnArmIntent is made
