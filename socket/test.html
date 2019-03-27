@@ -1,14 +1,3 @@
-<script src="node_modules/socket.io-client/dist/socket.io.js"></script>
-<script>
-  /*console.log("HERE");
-  var socket = io('http://fc370a4b.ngrok.io');
-  socket.on('connect', function(){
-    print("Connected");
-    socket.emit("move","right");
-  });
-  socket.on('event', function(data){});
-  socket.on('disconnect', function(){});*/
-</script>
 <html>
   <head>
     <title>Ev3 device test</title>
@@ -20,6 +9,57 @@
 
     <!-- Latest compiled JavaScript -->
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+    <script src="/socket.io/socket.io.js"></script>
+    <script>
+      console.log("HERE");
+      var socket = io();
+      socket.on('connect', function(){});
+      socket.on('event', function(data){});
+      socket.on('disconnect', function(){});
+      $(document).ready(function() {
+        socket.on("message",function(message){
+
+        });
+      });
+      function moveCommand(command) {
+        console.log(command);
+        switch (command) {
+          case "moveForwards" :
+            socket.emit("move","forward");
+            break;
+          case "moveBackwards":
+            socket.emit("move","backward");
+            break;
+          case "moveLeft":
+            socket.emit("move","left");
+            break;
+          case "moveRight":
+            socket.emit("move","right");
+            break;
+          case "clawOpen":
+            socket.emit("claw","release");
+            break;
+          case "clawClose":
+            socket.emit("claw","grab");
+            break;
+          case "jointRaise":
+            socket.emit("arm","up");
+            break;
+          case "jointLower":
+            socket.emit("arm","down");
+            break;
+          case "jointRelease":
+            socket.emit("arm","release");
+            break;
+          case "rotateLeft":
+            socket.emit("arm","left");
+            break;
+          case "rotateRight":
+            socket.emit("arm","right");
+            break;
+        }
+      }
+    </script>
   </head>
   <body>
     <div class='container'>
@@ -32,16 +72,16 @@
             <h2>Movement controls</h2>
           </div>
           <form onsubmit="return false">
-              <button type='button' id='moveForwards' class='btn btn-large btn-block btn-primary'>
+              <button type='button' onclick='moveCommand("moveForwards")' class='btn btn-large btn-block btn-primary'>
                 Move forwards
               </button>
-              <button type='button' id='moveBackwards' class='btn btn-large btn-block btn-primary'>
+              <button type='button' onclick='moveCommand("moveBackwards")' class='btn btn-large btn-block btn-primary'>
                 Move Backwards
               </button>
-              <button type='button' id='moveLeft' class='btn btn-large btn-block btn-primary'>
+              <button type='button' onclick='moveCommand("moveLeft")' class='btn btn-large btn-block btn-primary'>
                   Turn left
                 </button>
-                <button type='button' id='moveRight' class='btn btn-large btn-block btn-primary'>
+                <button type='button' onclick='moveCommand("moveRight")' class='btn btn-large btn-block btn-primary'>
                     Turn Right
                   </button>
             </form> 
@@ -57,12 +97,12 @@
               </div>
               <div class='row'>
                 <div class="col-md-6">
-                  <button type='button' id="clawOpen" class='btn btn-large btn-block btn-primary'>
+                  <button type='button' onclick='moveCommand("clawOpen")' class='btn btn-large btn-block btn-primary'>
                     Open
                   </button>
                 </div>
                 <div class="col-md-6">
-                    <button type='button' id='clawClose' class='btn btn-large btn-block btn-primary'>
+                    <button type='button' onclick='moveCommand("clawClose")' class='btn btn-large btn-block btn-primary'>
                       Close
                     </button>
                   </div>
@@ -74,17 +114,17 @@
               </div>
               <div class='row'>
                 <div class='col-md-4'>
-                  <button type='button' id='jointRaise' class='btn btn-block btn-large btn-primary'>
+                  <button type='button' onclick='moveCommand("jointRaise")' class='btn btn-block btn-large btn-primary'>
                     Raise
                   </button>
                 </div>
                 <div class='col-md-4'>
-                    <button type='button' id='jointLower' class='btn btn-block btn-large btn-primary'>
+                    <button type='button' onclick='moveCommand("jointLower")' class='btn btn-block btn-large btn-primary'>
                       Lower
                     </button>
                   </div>
                   <div class='col-md-4'>
-                      <button type='button' id='jointRelease' class='btn btn-block btn-large btn-primary'>
+                      <button type='button' onclick='moveCommand("jointRelease")' class='btn btn-block btn-large btn-primary'>
                         Release
                       </button>
                     </div>
@@ -96,12 +136,12 @@
               </div>
               <div class='row'>
                 <div class='col-md-6'>
-                  <button type='button' id='rotateLeft' class='btn btn-block btn-large btn-primary'>
+                  <button type='button' onclick='moveCommand("rotateLeft")' class='btn btn-block btn-large btn-primary'>
                     Left
                   </button>
                 </div>
                 <div class='col-md-6'>
-                    <button type='button' id='rotateRight' class='btn btn-block btn-large btn-primary'>
+                    <button type='button' onclick='moveCommand("rotateRight")' class='btn btn-block btn-large btn-primary'>
                       Right
                     </button>
                   </div>
@@ -111,37 +151,5 @@
         </div>
       </div>
     </div>
-    <script>
-        $("#moveForwards").click(function() {
-          
-        });
-        $("#moveBackwards").click(function() {
-        });
-        $("#moveLeft").click(function() {
-        });
-        $("#moveRight").click(function() {
-        });
-        $("#clawOpen").click(function() {
-
-        });
-        $("#clawClose").click(function() {
-
-        });
-        $("#jointRaise").click(function() {
-
-        });
-        $("#jointLower").click(function() {
-
-        });
-        $("#jointRelease").click(function() {
-
-        });
-        $("#rotateLeft").click(function() {
-
-        });
-        $("#rotateRight").click(function() {
-
-        });
-      </script>
   </body>
 </html>
