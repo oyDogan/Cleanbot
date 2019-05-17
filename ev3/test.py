@@ -1,7 +1,7 @@
+# This is a script to test the communication from the web socket to the ev3dev
+
 from socketIO_client import SocketIO
 import logging
-
-# This is a script to test the communication from the web socket to the ev3dev
 
 # Connects to the web socket
 socket = SocketIO('http://bd9c8794.ngrok.io')

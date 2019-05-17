@@ -1,3 +1,5 @@
+# This script should be run on the Ev3 P-brick on the Rover brick
+# It is designed to connect to a web socket and move based on incoming messages
 from socketIO_client import SocketIO
 import ev3dev.ev3 as ev3
 from time import sleep
@@ -22,16 +24,16 @@ rightFrontSensor = ev3.UltrasonicSensor('in4')
 # As use of the side sensors is still temporamental, only check the front sensors
 
 # Sets the distance measurement for the front left sensor
-leftFrontSensor.mode = 'US-DIST-CM'
-# Sets the distance measurement for the front right sensor
-rightFrontSensor.mode = 'US-DIST-CM'
+# leftFrontSensor.mode = 'US-DIST-CM'
+# # Sets the distance measurement for the front right sensor
+# rightFrontSensor.mode = 'US-DIST-CM'
 
 # Sets the volume of the Ev3 to 100%
 ev3.Sound.set_volume(100)
 # For testing purposes
 print("WORKING")
 # Connects to the web socket
-socket = SocketIO('https://31a8b4e4.ngrok.io')
+socket = SocketIO('https://a219f029.ngrok.io')
 # For testing, prints once the SocketIO begins to connection with the web socket
 print("SocketIO started")
 

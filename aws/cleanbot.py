@@ -1,3 +1,5 @@
+# This script is used as the initial end-point for the Alexa skill
+# This script listens on port 5000 for incoming requests
 import logging
 from socketIO_client import SocketIO
 from flask import Flask, render_template
@@ -12,7 +14,8 @@ logging.getLogger("flask_ask").setLevel(logging.DEBUG)
 # print("LOGIN")
 
 # Using SocketIo library to link to the local web socket
-socket = SocketIO('http://localhost',1337)
+socket = SocketIO('https://a219f029.ngrok.io')
+print("Working")
 
 # Assigning the Hello intent to a function that returns a message
 @ask.intent("HelloIntent")

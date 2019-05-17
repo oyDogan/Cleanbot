@@ -1,3 +1,5 @@
+# This script should be run on the Ev3 P-brick on the Arm brick
+# It is designed to connect to a web socket and move based on incoming messages
 from socketIO_client import SocketIO
 import ev3dev.ev3 as ev3
 from time import sleep
@@ -10,7 +12,7 @@ joint = ev3.LargeMotor('outC')
 rotor = ev3.LargeMotor('outB')
 
 # Uses the SocketIO library to connect to the web socket 
-socket = SocketIO("https://c1406536.ngrok.io")
+socket = SocketIO("https://a219f029.ngrok.io")
 
 # Called when a GrabIntent or ReleaseIntent is sent from the web socket
 # This function delegates and calls which function should act on the command

@@ -1,5 +1,5 @@
 hello : Hello, its me, I was wondering
-move : Moving {{}}
+move : Moving {{direction}}
 stop : Stopping
 grab : Grabbing
 release : Releasing

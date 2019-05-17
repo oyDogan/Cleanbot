@@ -1,4 +1,6 @@
-//Import packages
+// This web socket is used to transmit request from the Python script to the Ev3Dev scripts
+// This web socket listens on the port 1337
+
 // Import packages
 const express = require("express");
 const socketIO = require("socket.io");
