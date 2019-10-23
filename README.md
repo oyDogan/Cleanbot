@@ -1,5 +1,6 @@
 # Cleanbot
 University of Kent student's group project for CO600
+![alt text](docs/images/52980011_350300329152668_3237446854807388160_n.jpg)
 # Introduction
 The code provided assumes that you have a pre-existing Lego Mindstorms robot that has 2 P-bricks and  7 motors, one for each wheel, another for the claw, one for the arm joint and the last for the arm rotation, to start this does not require you to have a pre existing operating system running on the P-brick's, however 2 Micro SD cards will be needed to be able to install an operating system on the bricks.
 

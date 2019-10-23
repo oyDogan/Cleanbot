@@ -33,7 +33,7 @@ ev3.Sound.set_volume(100)
 # For testing purposes
 print("WORKING")
 # Connects to the web socket
-socket = SocketIO('https://a219f029.ngrok.io')
+socket = SocketIO('https://4768359b.ngrok.io')
 # For testing, prints once the SocketIO begins to connection with the web socket
 print("SocketIO started")
 

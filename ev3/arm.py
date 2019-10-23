@@ -12,7 +12,7 @@ joint = ev3.LargeMotor('outC')
 rotor = ev3.LargeMotor('outB')
 
 # Uses the SocketIO library to connect to the web socket 
-socket = SocketIO("https://a219f029.ngrok.io")
+socket = SocketIO("https://5bae97fe.ngrok.io")
 
 # Called when a GrabIntent or ReleaseIntent is sent from the web socket
 # This function delegates and calls which function should act on the command

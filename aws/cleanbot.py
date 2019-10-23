@@ -14,7 +14,7 @@ logging.getLogger("flask_ask").setLevel(logging.DEBUG)
 # print("LOGIN")
 
 # Using SocketIo library to link to the local web socket
-socket = SocketIO('https://a219f029.ngrok.io')
+socket = SocketIO('https://4768359b.ngrok.io')
 print("Working")
 
 # Assigning the Hello intent to a function that returns a message
